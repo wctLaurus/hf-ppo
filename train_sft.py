@@ -4,6 +4,9 @@ from transformers import AutoModelForCausalLM,AutoTokenizer
 from trl import SFTConfig
 from modelscope.msdatasets import MsDataset
 import datetime
+import os
+# 指定只用0、1号两张显卡（关键！）
+os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
 
 '''
 下载Qwen模型,用于训练Reward Model
