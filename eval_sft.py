@@ -7,7 +7,7 @@ from transformers import AutoModelForCausalLM,AutoTokenizer
 # 指定只用0、1号两张显卡（关键！）
 os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
 model_dir='./checkpoint/sft'
-model=AutoModelForCausalLM.from_pretrained(model_dir,device_map='cuda')
+model=AutoModelForCausalLM.from_pretrained(model_dir,device_map='auto')
 tokenizer=AutoTokenizer.from_pretrained(model_dir)
 
 '''
