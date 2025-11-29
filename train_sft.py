@@ -14,7 +14,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
 model_name='Qwen/Qwen2.5-0.5B-Instruct'
 model_dir=snapshot_download(model_name,cache_dir='./checkpoint/base/')
 
-model=AutoModelForCausalLM.from_pretrained(model_dir,device_map='cuda') # 只训score head
+model=AutoModelForCausalLM.from_pretrained(model_dir,device_map='auto') # 只训score head
 tokenizer=AutoTokenizer.from_pretrained(model_dir)
 
 dataset=MsDataset.load('jackmokaka/btfChinese-DPO-small',subset_name='default',split='train')
